@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+
+  whatsapp:
+    build: ./whatsapp-server
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./whatsapp-server/auth:/app/auth
+
+  pocketbase:
+    build: ./pocketbase
+    ports:
+      - "8090:8090"
+    volumes:
+      - ./pb_data:/pb/pb_data

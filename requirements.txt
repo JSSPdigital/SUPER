@@ -1,0 +1,4 @@
+flask
+flask-socketio
+openai
+psycopg2-binary

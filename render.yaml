@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: supermaxbot-backend
+    env: docker
+    dockerfilePath: ./backend/Dockerfile
+    plan: free
+    autoDeploy: true
+
+  - type: web
+    name: supermaxbot-whatsapp
+    env: docker
+    dockerfilePath: ./whatsapp-server/Dockerfile
+    plan: free
+    autoDeploy: true
+
+  - type: web
+    name: supermaxbot-pocketbase
+    env: docker
+    dockerfilePath: ./pocketbase/Dockerfile
+    plan: free
+    autoDeploy: true
+    disk:
+      name: pb-data
+      mountPath: /pb/pb_data
+      sizeGB: 1
